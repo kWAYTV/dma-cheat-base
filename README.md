@@ -15,7 +15,7 @@ This is a simple base to start building your Direct Memory Access (DMA) cheats.
 1. Clone the repository.
 2. Open the project in Visual Studio.
 3. Place `FTD3XX.lib`,  `leechcore.lib` & `vmm.lib` in the project directory, inside `src/Lib` folder.
-4. Configure `globals.h` to your needs.
+4. Configure `config.h` with your proccess info & kmbox details.
 5. Add your own cheat code & initialize it in `main.cpp`.
 6. Build the project & send it over to your second machine.
 7. Magic!
