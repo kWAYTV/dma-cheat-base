@@ -18,42 +18,39 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dma\Memory.cpp">
+    <ClCompile Include="src\Dma\Memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Misc\Pch\Pch.cpp">
+    <ClCompile Include="src\Misc\Pch\Pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dma\dma.cpp">
+    <ClCompile Include="src\Dma\dma.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Dma\Memory.h">
+    <ClInclude Include="src\Dma\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Misc\Pch\Pch.h">
+    <ClInclude Include="src\Misc\Pch\Pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Misc\Utils.h">
+    <ClInclude Include="src\Include\leechcore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\leechcore.h">
+    <ClInclude Include="src\Include\vmmdll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\vmmdll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\skCrypter.h">
+    <ClInclude Include="src\Include\skCrypter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dma\dma.h">
+    <ClInclude Include="src\Dma\dma.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

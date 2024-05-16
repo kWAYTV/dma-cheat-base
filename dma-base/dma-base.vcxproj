@@ -33,8 +33,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build/obj\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Include\easywsclient;$(SolutionDir)$(ProjectName)\Include\fnv1a;$(SolutionDir)$(ProjectName)\Include</IncludePath>
-    <LibraryPath>$(SolutionDir)$(ProjectName)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)$(ProjectName)\src\Include</IncludePath>
+    <LibraryPath>$(SolutionDir)$(ProjectName)\src\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -45,7 +45,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\Dma;$(SolutionDir)$(ProjectName)\Features;$(SolutionDir)$(ProjectName)\Misc;$(SolutionDir)$(ProjectName)\Misc\Pch;$(SolutionDir)$(ProjectName)\SDK;$(SolutionDir)$(ProjectName)\Socket;$(SolutionDir)$(ProjectName)\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Dma;$(SolutionDir)$(ProjectName)\src\Features;$(SolutionDir)$(ProjectName)\src\Misc;$(SolutionDir)$(ProjectName)\src\Misc\Pch;$(SolutionDir)$(ProjectName)\src\SDK;$(SolutionDir)$(ProjectName)\src\Socket;$(SolutionDir)$(ProjectName)\src\;$(SolutionDir)$(ProjectName)\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -62,21 +62,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Dma\dma.cpp" />
+    <ClCompile Include="src\Dma\dma.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Dma\Memory.cpp" />
-    <ClCompile Include="Misc\Pch\Pch.cpp" />
+    <ClCompile Include="src\Dma\Memory.cpp" />
+    <ClCompile Include="src\Misc\Pch\Pch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
-    <ClInclude Include="Dma\dma.h" />
+    <ClInclude Include="src\Dma\dma.h" />
     <ClInclude Include="globals.h" />
-    <ClInclude Include="Dma\Memory.h" />
-    <ClInclude Include="Include\leechcore.h" />
-    <ClInclude Include="Include\skCrypter.h" />
-    <ClInclude Include="Include\vmmdll.h" />
-    <ClInclude Include="Misc\Pch\Pch.h" />
-    <ClInclude Include="Misc\Utils.h" />
+    <ClInclude Include="src\Dma\Memory.h" />
+    <ClInclude Include="src\Include\leechcore.h" />
+    <ClInclude Include="src\Include\skCrypter.h" />
+    <ClInclude Include="src\Include\vmmdll.h" />
+    <ClInclude Include="src\Misc\Pch\Pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
