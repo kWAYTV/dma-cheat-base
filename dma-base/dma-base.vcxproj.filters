@@ -35,7 +35,7 @@
     <ClInclude Include="src\Misc\Pch\Pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\globals.h">
+    <ClInclude Include="src\Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Include\leechcore.h">
@@ -47,7 +47,7 @@
     <ClInclude Include="src\Include\skCrypter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\config.h">
+    <ClInclude Include="src\Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Kmbox\Excluded.h">

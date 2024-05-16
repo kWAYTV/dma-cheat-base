@@ -68,8 +68,8 @@
     <ClCompile Include="src\Misc\Pch\Pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\config.h" />
-    <ClInclude Include="src\globals.h" />
+    <ClInclude Include="src\Config.h" />
+    <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\Dma\Memory.h" />
     <ClInclude Include="src\Include\leechcore.h" />
     <ClInclude Include="src\Include\skCrypter.h" />
