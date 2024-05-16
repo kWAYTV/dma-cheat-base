@@ -16,9 +16,9 @@ Memory::Memory()
 
 	if (!modules.VMM || !modules.FTD3XX || !modules.LEECHCORE)
 	{
-		LOG("vmm: %p\n", modules.VMM);
-		LOG("ftd: %p\n", modules.FTD3XX);
-		LOG("leech: %p\n", modules.LEECHCORE);
+		LOG("VMM: %p\n", modules.VMM);
+		LOG("FTD: %p\n", modules.FTD3XX);
+		LOG("LEECH: %p\n", modules.LEECHCORE);
 		DebugBreak();
 	}
 
@@ -156,7 +156,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 			LOG("Dumping memory map to file...\n");
 			if (!dumped)
 			{
-				LOG("[!] ERROR: Could not dump memory map!\n");
+				LOG("[!] Could not dump memory map!\n");
 				LOG("Defaulting to no memory map!\n");
 			}
 			else
@@ -188,7 +188,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 
 		LOG("FPGA ID: %llu\n", FPGA_ID);
 		LOG("DEVICE ID: %llu\n", DEVICE_ID);
-		LOG("success!\n");
+		LOG("Success!\n");
 
 		if (!this->SetFPGA())
 		{
