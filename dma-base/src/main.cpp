@@ -1,18 +1,19 @@
-﻿#include <Pch.h>
+﻿// main.cpp
+#include <Pch.h>
 
-bool main()
+int main()
 {
     SetConsoleTitleA(skCrypt("Developer Console"));
 
-	if (!Mem.Init(globals::ProcName)
-	{
-		LOG(skCrypt("Failed to initialize process\n"));
-		return false;
-	}
+    if (!Mem.Init(globals::ProcName))
+    {
+        LOG(skCrypt("Failed to initialize process\n"));
+        return false;
+    }
 
-	globals::ClientBase = Mem.GetBaseAddress(globals::ProcBase);
-	Mem.FixCr3();
+    globals::ClientBase = Mem.GetBaseAddress(globals::ProcBase);
+    Mem.FixCr3();
 
     system(skCrypt("pause"));
-    return false;
+    return 0;
 }

@@ -6,7 +6,7 @@
 
 namespace globals
 {
-	inline std::string ProcName = "cs2.exe";
-	inline std::string ProcBase = "client.dll";
-	inline uintptr_t ClientBase = NULL;
+    inline std::string ProcName = "cs2.exe";
+    inline std::string ProcBase = "client.dll";
+    inline uintptr_t ClientBase = NULL;
 };
