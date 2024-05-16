@@ -5,7 +5,6 @@
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Usage](#usage)
-- [License](#license)
 - [Credits](#credits)
 
 ## Introduction
@@ -18,9 +17,6 @@ This is a simple base to start building your Direct Memory Access (DMA) cheats.
 4. Add your own cheat code & initialize it in `main.cpp`.
 5. Build the project & send it over to your second machine.
 6. Magic!
-
-## License
-See the [LICENSE](LICENSE) file for details.
 
 ## Credits
 - [SDM](https://github.com/IntelSDM/) for the methods
