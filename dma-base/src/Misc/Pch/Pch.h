@@ -43,8 +43,8 @@
 #include "skCrypter.h"
 #include "Memory.h"
 #include "Kmbox/Manager.h"
-#include "config.h"
-#include "globals.h"
+#include "Config.h"
+#include "Globals.h"
 
 // Logging
 #define DEBUG_INFO 1
