@@ -41,8 +41,13 @@
 #pragma comment(lib, "Shcore.lib")
 
 #include "skCrypter.h"
-#include "globals.h"
 #include "Memory.h"
+#include "Kmbox/Manager.h"
+#include "config.h"
+#include "globals.h"
+
+// Logging
+#define DEBUG_INFO 1
 
 #ifdef DEBUG_INFO
 #define LOG(fmt, ...) std::printf(fmt, ##__VA_ARGS__)

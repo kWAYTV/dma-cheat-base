@@ -9,7 +9,7 @@
 
 Memory::Memory()
 {
-	LOG("Loading libraries...\n");
+	//LOG("Loading libraries...\n");
 	modules.VMM = LoadLibraryA("vmm.dll");
 	modules.FTD3XX = LoadLibraryA("FTD3XX.dll");
 	modules.LEECHCORE = LoadLibraryA("leechcore.dll");
@@ -106,9 +106,9 @@ bool Memory::SetFPGA()
 		return false;
 	}
 
-	LOG("[+] VMMDLL_ConfigGet");
-	LOG(" ID = %lli", qwID);
-	LOG(" VERSION = %lli.%lli\n", qwVersionMajor, qwVersionMinor);
+	//("VMMDLL_ConfigGet");
+	//LOG(" ID = %lli", qwID);
+	//LOG(" VERSION = %lli.%lli\n", qwVersionMajor, qwVersionMinor);
 
 	if ((qwVersionMajor >= 4) && ((qwVersionMajor >= 5) || (qwVersionMinor >= 7)))
 	{
@@ -153,7 +153,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 				dumped = this->DumpMemoryMap(debug);
 			else
 				dumped = true;
-			LOG("Dumping memory map to file...\n");
+			//LOG("Dumping memory map to file...\n");
 			if (!dumped)
 			{
 				LOG("[!] Could not dump memory map!\n");
@@ -186,9 +186,9 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_FPGA_ID, &FPGA_ID);
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_DEVICE_ID, &DEVICE_ID);
 
-		LOG("FPGA ID: %llu\n", FPGA_ID);
-		LOG("DEVICE ID: %llu\n", DEVICE_ID);
-		LOG("Success!\n");
+		//LOG("FPGA ID: %llu\n", FPGA_ID);
+		//LOG("DEVICE ID: %llu\n", DEVICE_ID);
+		//LOG("Success!\n");
 
 		if (!this->SetFPGA())
 		{
@@ -216,9 +216,9 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 	}
 	this->current_process.process_name = process_name;
 	if (!Mem.FixCr3())
-		LOG("Failed to fix CR3");
+		LOG("Failed to fix CR3\n");
 	else
-		LOG("CR3 fixed");
+		//LOG("CR3 fixed\n");
 
 	this->current_process.base_address = GetBaseAddress(process_name);
 	if (!this->current_process.base_address)
@@ -306,7 +306,7 @@ VMMDLL_PROCESS_INFORMATION Memory::GetProcessInformation()
 		return { };
 	}
 
-	LOG("[+] Found process information\n");
+	//LOG("Found process information\n");
 	return info;
 }
 
@@ -324,7 +324,7 @@ size_t Memory::GetBaseAddress(std::string module_name)
 			return 0;
 		}
 
-		LOG("[+] Found Base Address for %s at 0x%p\n", module_name.c_str(), module_info->vaBase);
+		LOG("Found Base Address for %s at 0x%p\n", module_name.c_str(), module_info->vaBase);
 		Modules[str] = module_info->vaBase;
 		return module_info->vaBase;
 	}
@@ -343,9 +343,11 @@ size_t Memory::GetBaseSize(std::string module_name)
 	auto bResult = VMMDLL_Map_GetModuleFromNameW(this->vHandle, this->current_process.PID, (LPWSTR)str.c_str(), &module_info, VMMDLL_MODULE_FLAG_NORMAL);
 	if (bResult)
 	{
-		LOG("[+] Found Base Size for %s at 0x%p\n", module_name.c_str(), module_info->cbImageSize);
+		//LOG("Found Base Size for %s at 0x%p\n", module_name.c_str(), module_info->cbImageSize);
 		return module_info->cbImageSize;
 	}
+
+	LOG("[!] Failed to find Base Size for %s\n", module_name.c_str());
 	return 0;
 }
 
@@ -510,7 +512,7 @@ bool Memory::FixCr3()
 		result = VMMDLL_Map_GetModuleFromNameU(this->vHandle, this->current_process.PID, (LPSTR)this->current_process.process_name.c_str(), &module_entry, NULL);
 		if (result)
 		{
-			LOG("[+] Patched DTB\n");
+			//LOG("Patched DTB\n");
 			return true;
 		}
 	}
@@ -521,7 +523,7 @@ bool Memory::FixCr3()
 
 bool Memory::DumpMemory(uintptr_t address, std::string path)
 {
-	LOG("[!] Memory dumping currently does not rebuild the IAT table, imports will be missing from the dump.\n");
+	//LOG("[!] Memory dumping currently does not rebuild the IAT table, imports will be missing from the dump.\n");
 	IMAGE_DOS_HEADER dos;
 	Read(address, &dos, sizeof(IMAGE_DOS_HEADER));
 
@@ -622,7 +624,7 @@ bool Memory::DumpMemory(uintptr_t address, std::string path)
 		return false;
 	}
 
-	LOG("[+] Successfully dumped memory at %s\n", path.c_str());
+	//LOG("Successfully dumped memory at %s\n", path.c_str());
 	CloseHandle(dumped_file);
 	return true;
 }

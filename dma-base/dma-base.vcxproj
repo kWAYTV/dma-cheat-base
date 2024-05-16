@@ -45,7 +45,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Dma;$(SolutionDir)$(ProjectName)\src\Features;$(SolutionDir)$(ProjectName)\src\Misc;$(SolutionDir)$(ProjectName)\src\Misc\Pch;$(SolutionDir)$(ProjectName)\src\SDK;$(SolutionDir)$(ProjectName)\src\Socket;$(SolutionDir)$(ProjectName)\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Dma;$(SolutionDir)$(ProjectName)\src\Kmbox;$(SolutionDir)$(ProjectName)\src\Misc;$(SolutionDir)$(ProjectName)\src\Misc\Pch;$(SolutionDir)$(ProjectName)\src\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -62,6 +62,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Kmbox\Manager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Dma\Memory.cpp" />
     <ClCompile Include="src\Misc\Pch\Pch.cpp" />
@@ -73,6 +74,9 @@
     <ClInclude Include="src\Include\leechcore.h" />
     <ClInclude Include="src\Include\skCrypter.h" />
     <ClInclude Include="src\Include\vmmdll.h" />
+    <ClInclude Include="src\Kmbox\Excluded.h" />
+    <ClInclude Include="src\Kmbox\Config.h" />
+    <ClInclude Include="src\Kmbox\Manager.h" />
     <ClInclude Include="src\Misc\Pch\Pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
