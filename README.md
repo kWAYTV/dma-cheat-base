@@ -19,4 +19,5 @@ This is a simple base to start building your Direct Memory Access (DMA) cheats.
 6. Magic!
 
 ## Credits
-- [SDM](https://github.com/IntelSDM/) for the methods
+- [Ulf Frisk](https://github.com/ufrisk) for [MemProcFS](https://github.com/ufrisk/MemProcFS)
+- [SDM](https://github.com/IntelSDM/) for the easy implementation
