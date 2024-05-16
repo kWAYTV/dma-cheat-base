@@ -1,15 +1,15 @@
 ## DMA Cheat Base
 
-## Introduction
-This is a simple base to start building your Direct Memory Access (DMA) cheats.
-
 ## Table of Contents
 - [DMA Cheat Base](#dma-cheat-base)
-- [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
 - [Usage](#usage)
 - [License](#license)
 - [Credits](#credits)
+
+## Introduction
+This is a simple base to start building your Direct Memory Access (DMA) cheats.
 
 ## Usage
 1. Clone the repository.
