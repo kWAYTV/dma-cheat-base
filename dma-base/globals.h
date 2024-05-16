@@ -1,7 +1,7 @@
 #pragma once
 #include <Pch.h>
 
-#define DEBUG_INFO 1
+#define DEBUG_INFO
 #define USE_LOCALHOST 0
 
 namespace globals {

@@ -62,14 +62,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Dma\dma.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Dma\Memory.cpp" />
     <ClCompile Include="src\Misc\Pch\Pch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
-    <ClInclude Include="src\Dma\dma.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="src\Dma\Memory.h" />
     <ClInclude Include="src\Include\leechcore.h" />

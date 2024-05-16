@@ -9,7 +9,7 @@
 
 Memory::Memory()
 {
-	LOG("loading libraries...\n");
+	LOG("Loading libraries...\n");
 	modules.VMM = LoadLibraryA("vmm.dll");
 	modules.FTD3XX = LoadLibraryA("FTD3XX.dll");
 	modules.LEECHCORE = LoadLibraryA("leechcore.dll");
@@ -133,7 +133,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 {
 	if (!DMA_INITIALIZED)
 	{
-		LOG("inizializing...\n");
+		LOG("Inizializing...\n");
 	reinit:
 		LPSTR args[] = { (LPSTR)"", (LPSTR)"-device", (LPSTR)"fpga://algo=0", (LPSTR)"", (LPSTR)"", (LPSTR)"", (LPSTR)"" };
 		DWORD argc = 3;
@@ -153,7 +153,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 				dumped = this->DumpMemoryMap(debug);
 			else
 				dumped = true;
-			LOG("dumping memory map to file...\n");
+			LOG("Dumping memory map to file...\n");
 			if (!dumped)
 			{
 				LOG("[!] ERROR: Could not dump memory map!\n");
