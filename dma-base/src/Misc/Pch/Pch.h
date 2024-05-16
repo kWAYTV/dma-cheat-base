@@ -30,14 +30,6 @@
 #include <ShellScalingApi.h>
 #include <vmmdll.h>
 
-#ifdef DEBUG_INFO
-#define LOG(fmt, ...) std::printf(fmt, ##__VA_ARGS__)
-#define LOGW(fmt, ...) std::wprintf(fmt, ##__VA_ARGS__)
-#else
-#define LOG
-#define LOGW
-#endif
-
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "vmm.lib")
 #pragma comment(lib, "leechcore.lib")
@@ -51,3 +43,11 @@
 #include "skCrypter.h"
 #include "globals.h"
 #include "Memory.h"
+
+#ifdef DEBUG_INFO
+#define LOG(fmt, ...) std::printf(fmt, ##__VA_ARGS__)
+#define LOGW(fmt, ...) std::wprintf(fmt, ##__VA_ARGS__)
+#else
+#define LOG
+#define LOGW
+#endif
