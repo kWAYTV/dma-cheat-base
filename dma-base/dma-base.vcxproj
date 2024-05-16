@@ -45,7 +45,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Dma;$(SolutionDir)$(ProjectName)\src\Features;$(SolutionDir)$(ProjectName)\src\Misc;$(SolutionDir)$(ProjectName)\src\Misc\Pch;$(SolutionDir)$(ProjectName)\src\SDK;$(SolutionDir)$(ProjectName)\src\Socket;$(SolutionDir)$(ProjectName)\src\;$(SolutionDir)$(ProjectName)\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Dma;$(SolutionDir)$(ProjectName)\src\Features;$(SolutionDir)$(ProjectName)\src\Misc;$(SolutionDir)$(ProjectName)\src\Misc\Pch;$(SolutionDir)$(ProjectName)\src\SDK;$(SolutionDir)$(ProjectName)\src\Socket;$(SolutionDir)$(ProjectName)\src\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -62,13 +62,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Dma\Memory.cpp" />
     <ClCompile Include="src\Misc\Pch\Pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="config.h" />
-    <ClInclude Include="globals.h" />
+    <ClInclude Include="src\config.h" />
+    <ClInclude Include="src\globals.h" />
     <ClInclude Include="src\Dma\Memory.h" />
     <ClInclude Include="src\Include\leechcore.h" />
     <ClInclude Include="src\Include\skCrypter.h" />
