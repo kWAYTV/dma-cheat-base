@@ -2,7 +2,7 @@
 
 bool main()
 {
-    SetConsoleTitleA(skCrypt("Awhare - Developer Console"));
+    SetConsoleTitleA(skCrypt("Developer Console"));
 
 	if (!Mem.Init(globals::ProcName)
 	{
