@@ -360,3 +360,98 @@ bool KmBoxKeyBoard::GetKeyState(WORD vKey)
 	}
 	return false;
 }
+
+
+
+// Fill LCD with color
+int KmBoxNetManager::FillLCDColor(unsigned short rgb565) {
+	int err;
+	if (this->s_Client <= 0) {
+		return err_creat_socket;
+	}
+
+	for (int y = 0; y < 40; y++) {
+		this->PostData.head.indexpts++;
+		this->PostData.head.cmd = cmd_showpic;
+		this->PostData.head.rand = 0 | y * 4;
+
+		std::memset(this->PostData.u16buff.buff, rgb565, 512); // Fill buffer with color
+
+		int length = sizeof(cmd_head_t) + 1024;
+		sendto(this->s_Client, reinterpret_cast<const char*>(&this->PostData), length, 0,
+			reinterpret_cast<sockaddr*>(&this->AddrServer), sizeof(this->AddrServer));
+
+		SOCKADDR_IN sclient;
+		int clen = sizeof(sclient);
+		err = recvfrom(this->s_Client, reinterpret_cast<char*>(&this->ReceiveData), length, 0,
+			reinterpret_cast<sockaddr*>(&sclient), &clen);
+
+		if (err < 0) {
+			return err_net_rx_timeout;
+		}
+	}
+
+	return NetHandler();
+}
+
+// Change picture
+int KmBoxNetManager::ChangePicture(const unsigned char* buff_128_160) {
+	int err;
+	if (this->s_Client <= 0) {
+		return err_creat_socket;
+	}
+
+	for (int y = 0; y < 40; y++) {
+		this->PostData.head.indexpts++;
+		this->PostData.head.cmd = cmd_showpic;
+		this->PostData.head.rand = y * 4;
+
+		std::memcpy(this->PostData.u8buff.buff, &buff_128_160[y * 1024], 1024);
+
+		int length = sizeof(cmd_head_t) + 1024;
+		sendto(this->s_Client, reinterpret_cast<const char*>(&this->PostData), length, 0,
+			reinterpret_cast<sockaddr*>(&this->AddrServer), sizeof(this->AddrServer));
+
+		SOCKADDR_IN sclient;
+		int clen = sizeof(sclient);
+		err = recvfrom(this->s_Client, reinterpret_cast<char*>(&this->ReceiveData), length, 0,
+			reinterpret_cast<sockaddr*>(&sclient), &clen);
+
+		if (err < 0) {
+			return err_net_rx_timeout;
+		}
+	}
+
+	return NetHandler();
+}
+
+// Change bottom picture
+int KmBoxNetManager::ChangePictureBottom(const unsigned char* buff_128_80) {
+	int err;
+	if (this->s_Client <= 0) {
+		return err_creat_socket;
+	}
+
+	for (int y = 0; y < 20; y++) {
+		this->PostData.head.indexpts++;
+		this->PostData.head.cmd = cmd_showpic;
+		this->PostData.head.rand = 80 + y * 4;
+
+		std::memcpy(this->PostData.u8buff.buff, &buff_128_80[y * 1024], 1024);
+
+		int length = sizeof(cmd_head_t) + 1024;
+		sendto(this->s_Client, reinterpret_cast<const char*>(&this->PostData), length, 0,
+			reinterpret_cast<sockaddr*>(&this->AddrServer), sizeof(this->AddrServer));
+
+		SOCKADDR_IN sclient;
+		int clen = sizeof(sclient);
+		err = recvfrom(this->s_Client, reinterpret_cast<char*>(&this->ReceiveData), length, 0,
+			reinterpret_cast<sockaddr*>(&sclient), &clen);
+
+		if (err < 0) {
+			return err_net_rx_timeout;
+		}
+	}
+
+	return NetHandler();
+}
