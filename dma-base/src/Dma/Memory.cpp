@@ -16,7 +16,7 @@ Memory::Memory()
 
 	if (!modules.VMM || !modules.FTD3XX || !modules.LEECHCORE)
 	{
-		INFO("VMM: {0} - FTD: {1} - LEECH: {2}", modules.VMM, modules.FTD3XX, modules.LEECHCORE);
+		INFO("VMM: {} - FTD: {} - LEECH: {}", static_cast<void*>(modules.VMM), static_cast<void*>(modules.FTD3XX), static_cast<void*>(modules.LEECHCORE));
 		DebugBreak();
 	}
 
@@ -183,7 +183,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_FPGA_ID, &FPGA_ID);
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_DEVICE_ID, &DEVICE_ID);
 
-		INFO("FPGA ID: {0} - DEVICE ID: {1}", FPGA_ID, DEVICE_ID);
+		INFO("FPGA ID: {} - DEVICE ID: {}", FPGA_ID, DEVICE_ID);
 
 		if (!this->SetFPGA())
 		{
