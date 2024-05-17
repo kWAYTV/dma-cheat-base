@@ -4,12 +4,16 @@
 - [DMA Cheat Base](#dma-cheat-base)
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
+- [Todo](#todo)
 - [Usage](#usage)
 - [About the .lib files](#about-the-lib-files)
 - [Credits](#credits)
 
 ## Introduction
 This is a simple base to start building your Direct Memory Access (DMA) cheats.
+
+## Todo
+- [ ] Add KMBOX B/B+ Pro support. (Only NET support for now)
 
 ## Usage
 1. Clone the repository.
