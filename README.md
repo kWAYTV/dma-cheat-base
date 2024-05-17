@@ -29,4 +29,5 @@ I don't include the .lib files in the repo for security reasons. You can downloa
 
 ## Credits
 - [Ulf Frisk](https://github.com/ufrisk) for [MemProcFS](https://github.com/ufrisk/MemProcFS)
-- [SDM](https://github.com/IntelSDM/) for the easy implementation
+- [SDM](https://github.com/IntelSDM/) for the easy memprocfs implementation
+- [nonamenolife](https://github.com/eden13378) for the kmbox implementation
