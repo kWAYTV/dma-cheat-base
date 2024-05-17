@@ -156,8 +156,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 			INFO("Dumping memory map to file...");
 			if (!dumped)
 			{
-				ERROR("Could not dump memory map!");
-				INFO("Defaulting to no memory map!");
+				WARN("Could not dump memory map! Defaulting to no memory map!");
 			}
 			else
 			{
@@ -186,9 +185,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_FPGA_ID, &FPGA_ID);
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_DEVICE_ID, &DEVICE_ID);
 
-		INFO("FPGA ID: {}", FPGA_ID);
-		INFO("DEVICE ID: {}", DEVICE_ID);
-		INFO("Success!");
+		INFO("FPGA ID: {} - DEVICE ID: {}", FPGA_ID, DEVICE_ID);
 
 		if (!this->SetFPGA())
 		{
@@ -235,9 +232,9 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 	}
 
 	INFO("Process information of {}", process_name.c_str());
-	INFO("PID: {}", this->current_process.PID);
-	INFO("Base Address: 0x{}", this->current_process.base_address);
-	INFO("Base Size: 0x{}", this->current_process.base_size);
+	INFO("  PID: {}", this->current_process.PID);
+	INFO("  Base Address: 0x{}", this->current_process.base_address);
+	INFO("  Base Size: 0x{}", this->current_process.base_size);
 
 	PROCESS_INITIALIZED = TRUE;
 

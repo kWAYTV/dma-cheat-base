@@ -52,6 +52,11 @@ int KmBoxNetManager::InitDevice(const std::string& IP, WORD Port, const std::str
 	if (Status < 0)
 		return err_net_rx_timeout;
 
+	INFO("Successfully connected to KMBOX:");
+	INFO("  IP: {}", IP);
+	INFO("  Port: {}", Port);
+	INFO("  UUID: {}", Mac);
+
 	return NetHandler();
 }
 
