@@ -30,6 +30,10 @@
 #include <ShellScalingApi.h>
 #include <vmmdll.h>
 
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "vmm.lib")
 #pragma comment(lib, "leechcore.lib")
@@ -41,15 +45,8 @@
 #pragma comment(lib, "Shcore.lib")
 
 #include <spdlog/spdlog.h>
-#include "Memory.h"
-#include "Kmbox/Manager.h"
-#include "Config.h"
-#include "Globals.h"
 
 // Logging
-//#ifndef DEBUG_INFO
-//#define DEBUG_INFO 0
-
 #ifdef DEBUG_INFO
 #define INFO(fmt, ...) spdlog::info("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
 #define ERROR(fmt, ...) spdlog::error("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
@@ -62,4 +59,7 @@
 #define CRITICAL(fmt, ...) spdlog::critical(fmt, ##__VA_ARGS__)
 #endif
 
-//#endif // DEBUG_INFO
+#include "Memory.h"
+#include "Kmbox/Manager.h"
+#include "Config.h"
+#include "Globals.h"

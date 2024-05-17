@@ -34,3 +34,6 @@
 # Folders
 Build/*
 /.vs
+
+# User-specific files	
+config.json

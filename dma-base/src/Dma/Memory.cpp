@@ -543,6 +543,7 @@ bool Memory::DumpMemory(uintptr_t address, std::string path)
 		ERROR("[-] Failed signature check");
 		return false;
 	}
+
 	//Shouldn't change ever. so const 
 	const size_t target_size = nt.OptionalHeader.SizeOfImage;
 	//Crashes if we don't make it a ptr :(

@@ -71,6 +71,7 @@
     <ClInclude Include="src\Config.h" />
     <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\Dma\Memory.h" />
+    <ClInclude Include="src\Include\json.hpp" />
     <ClInclude Include="src\Include\leechcore.h" />
     <ClInclude Include="src\Include\spdlog\async.h" />
     <ClInclude Include="src\Include\spdlog\async_logger-inl.h" />
