@@ -153,7 +153,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 				dumped = this->DumpMemoryMap(debug);
 			else
 				dumped = true;
-			//INFO("Dumping memory map to file...");
+			INFO("Dumping memory map to file...");
 			if (!dumped)
 			{
 				ERROR("Could not dump memory map!");
@@ -186,9 +186,9 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_FPGA_ID, &FPGA_ID);
 		VMMDLL_ConfigGet(this->vHandle, LC_OPT_FPGA_DEVICE_ID, &DEVICE_ID);
 
-		//INFO("FPGA ID: {}", FPGA_ID);
-		//INFO("DEVICE ID: {}", DEVICE_ID);
-		//INFO("Success!");
+		INFO("FPGA ID: {}", FPGA_ID);
+		INFO("DEVICE ID: {}", DEVICE_ID);
+		INFO("Success!");
 
 		if (!this->SetFPGA())
 		{
@@ -218,7 +218,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 	if (!Mem.FixCr3())
 		ERROR("Failed to fix CR3");
 	else
-		//INFO("CR3 fixed");
+		INFO("CR3 fixed");
 
 	this->current_process.base_address = GetBaseAddress(process_name);
 	if (!this->current_process.base_address)
@@ -306,7 +306,7 @@ VMMDLL_PROCESS_INFORMATION Memory::GetProcessInformation()
 		return { };
 	}
 
-	//INFO("Found process information");
+	INFO("Found process information");
 	return info;
 }
 
@@ -343,7 +343,7 @@ size_t Memory::GetBaseSize(std::string module_name)
 	auto bResult = VMMDLL_Map_GetModuleFromNameW(this->vHandle, this->current_process.PID, (LPWSTR)str.c_str(), &module_info, VMMDLL_MODULE_FLAG_NORMAL);
 	if (bResult)
 	{
-		//INFO("Found Base Size for {0} at 0x{1}", module_name.c_str(), module_info->cbImageSize);
+		INFO("Found Base Size for {0} at 0x{1}", module_name.c_str(), module_info->cbImageSize);
 		return module_info->cbImageSize;
 	}
 
@@ -512,7 +512,7 @@ bool Memory::FixCr3()
 		result = VMMDLL_Map_GetModuleFromNameU(this->vHandle, this->current_process.PID, (LPSTR)this->current_process.process_name.c_str(), &module_entry, NULL);
 		if (result)
 		{
-			//INFO("Patched DTB");
+			INFO("Patched DTB");
 			return true;
 		}
 	}
@@ -523,7 +523,7 @@ bool Memory::FixCr3()
 
 bool Memory::DumpMemory(uintptr_t address, std::string path)
 {
-	//INFO("Memory dumping currently does not rebuild the IAT table, imports will be missing from the dump.");
+	INFO("Memory dumping currently does not rebuild the IAT table, imports will be missing from the dump.");
 	IMAGE_DOS_HEADER dos;
 	Read(address, &dos, sizeof(IMAGE_DOS_HEADER));
 
@@ -624,7 +624,7 @@ bool Memory::DumpMemory(uintptr_t address, std::string path)
 		return false;
 	}
 
-	//INFO("Successfully dumped memory at {}", path.c_str());
+	INFO("Successfully dumped memory at {}", path.c_str());
 	CloseHandle(dumped_file);
 	return true;
 }
@@ -754,7 +754,7 @@ void Memory::AddScatterReadRequest(VMMDLL_SCATTER_HANDLE handle, uint64_t addres
 	DWORD memoryPrepared = NULL;
 	if (!VMMDLL_Scatter_PrepareEx(handle, address, size, (PBYTE)buffer, &memoryPrepared))
 	{
-	//	ERROR("Failed to prepare scatter read at 0x{}", address);
+		ERROR("Failed to prepare scatter read at 0x{}", address);
 	}
 }
 
@@ -762,7 +762,7 @@ void Memory::AddScatterWriteRequest(VMMDLL_SCATTER_HANDLE handle, uint64_t addre
 {
 	if (!VMMDLL_Scatter_PrepareWrite(handle, address, (PBYTE)buffer, size))
 	{
-		//ERROR("Failed to prepare scatter write at 0x{}", address);
+		ERROR("Failed to prepare scatter write at 0x{}", address);
 	}
 }
 void Memory::ExecuteScatterWrite(VMMDLL_SCATTER_HANDLE handle)
@@ -770,12 +770,13 @@ void Memory::ExecuteScatterWrite(VMMDLL_SCATTER_HANDLE handle)
 
 	if (!VMMDLL_Scatter_Execute(handle))
 	{
-	//	ERROR("[-] Failed to Execute Scatter Read");
+		ERROR("[-] Failed to Execute Scatter Read");
 	}
+
 	//Clear after using it
 	if (!VMMDLL_Scatter_Clear(handle, this->current_process.PID, NULL))
 	{
-	//	ERROR("[-] Failed to clear Scatter");
+		ERROR("[-] Failed to clear Scatter");
 	}
 }
 void Memory::ExecuteScatterRead(VMMDLL_SCATTER_HANDLE handle)
@@ -785,6 +786,7 @@ void Memory::ExecuteScatterRead(VMMDLL_SCATTER_HANDLE handle)
 	{
 		ERROR("[-] Failed to Execute Scatter Read");
 	}
+
 	//Clear after using it
 	if (!VMMDLL_Scatter_Clear(handle, this->current_process.PID, NULL))
 	{
@@ -800,6 +802,7 @@ void Memory::ExecuteReadScatter(VMMDLL_SCATTER_HANDLE handle, int pid)
 	{
 		ERROR("[-] Failed to Execute Scatter Read");
 	}
+
 	//Clear after using it
 	if (!VMMDLL_Scatter_Clear(handle, pid, NULL))
 	{
@@ -816,6 +819,7 @@ void Memory::ExecuteWriteScatter(VMMDLL_SCATTER_HANDLE handle, int pid)
 	{
 		ERROR("[-] Failed to Execute Scatter Read");
 	}
+
 	//Clear after using it
 	if (!VMMDLL_Scatter_Clear(handle, pid, NULL))
 	{
