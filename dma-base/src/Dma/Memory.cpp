@@ -130,7 +130,7 @@ bool Memory::Init(std::string process_name, bool memMap, bool debug)
 {
 	if (!DMA_INITIALIZED)
 	{
-		INFO("Inizializing...");
+		INFO("Inizializing DMA...");
 	reinit:
 		LPSTR args[] = { (LPSTR)"", (LPSTR)"-device", (LPSTR)"fpga://algo=0", (LPSTR)"", (LPSTR)"", (LPSTR)"", (LPSTR)"" };
 		DWORD argc = 3;
