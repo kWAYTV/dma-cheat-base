@@ -40,19 +40,26 @@
 #pragma comment(lib, "Dwmapi.lib")
 #pragma comment(lib, "Shcore.lib")
 
-#include "skCrypter.h"
+#include <spdlog/spdlog.h>
 #include "Memory.h"
 #include "Kmbox/Manager.h"
 #include "Config.h"
 #include "Globals.h"
 
 // Logging
-#define DEBUG_INFO 1
+//#ifndef DEBUG_INFO
+//#define DEBUG_INFO 0
 
 #ifdef DEBUG_INFO
-#define LOG(fmt, ...) std::printf(fmt, ##__VA_ARGS__)
-#define LOGW(fmt, ...) std::wprintf(fmt, ##__VA_ARGS__)
+#define INFO(fmt, ...) spdlog::info("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#define ERROR(fmt, ...) spdlog::error("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#define WARN(fmt, ...) spdlog::warn("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#define CRITICAL(fmt, ...) spdlog::critical("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
 #else
-#define LOG
-#define LOGW
+#define INFO(fmt, ...) spdlog::info(fmt, ##__VA_ARGS__)
+#define ERROR(fmt, ...) spdlog::error(fmt, ##__VA_ARGS__)
+#define WARN(fmt, ...) spdlog::warn(fmt, ##__VA_ARGS__)
+#define CRITICAL(fmt, ...) spdlog::critical(fmt, ##__VA_ARGS__)
 #endif
+
+//#endif // DEBUG_INFO

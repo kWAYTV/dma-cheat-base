@@ -2,11 +2,13 @@
 
 bool main()
 {
-    SetConsoleTitleA(skCrypt("Console - Debug"));
+    SetConsoleTitleA("Console - Debug");
+
+    spdlog::set_level(spdlog::level::trace);
 
     if (!Mem.Init(Config::Proc::Name))
     {
-        LOG(skCrypt("[!] Failed to initialize DMA\n"));
+        ERROR("Failed to initialize DMA");
         return 1;
     }
 
@@ -15,10 +17,10 @@ bool main()
 
     if (Kmbox.InitDevice(Config::Kmbox::Ip, Config::Kmbox::Port, Config::Kmbox::Uuid) != 0)
     {
-        LOG(skCrypt("[!] Failed to initialize KMBOX\n"));
+        ERROR("Failed to initialize KMBOX");
         return 1;
     }
 
-    system(skCrypt("pause"));
+    system("pause");
     return 0;
 }
