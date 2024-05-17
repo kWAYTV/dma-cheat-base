@@ -9,7 +9,6 @@
 
 Memory::Memory()
 {
-	//INFO("Loading libraries...");
 	modules.VMM = LoadLibraryA("vmm.dll");
 	modules.FTD3XX = LoadLibraryA("FTD3XX.dll");
 	modules.LEECHCORE = LoadLibraryA("leechcore.dll");
@@ -556,54 +555,6 @@ bool Memory::DumpMemory(uintptr_t address, std::string path)
 		sections->PointerToRawData = sections->VirtualAddress;
 		sections->SizeOfRawData = sections->Misc.VirtualSize;
 	}
-
-	//Find all modules used by this process
-	//auto descriptor = Read<IMAGE_IMPORT_DESCRIPTOR>(address + ntHeader->OptionalHeader.DataDirectory[1].VirtualAddress);
-
-	//int descriptor_count = 0;
-	//int thunk_count = 0;
-
-	/*std::vector<ModuleData> modulelist;
-	while (descriptor.Name) {
-		auto first_thunk = Read<IMAGE_THUNK_DATA>(moduleAddr + descriptor.FirstThunk);
-		auto original_first_thunk = Read<IMAGE_THUNK_DATA>(moduleAddr + descriptor.OriginalFirstThunk);
-		thunk_count = 0;
-
-		char ModuleName[256];
-		ReadMemory(moduleAddr + descriptor.Name, (void*)&ModuleName, 256);
-
-		std::string DllName = ModuleName;
-
-		ModuleData tmpModuleData;
-
-		//if(std::find(modulelist.begin(), modulelist.end(), tmpModuleData) == modulelist.end())
-		//	modulelist.push_back(tmpModuleData);
-		while (original_first_thunk.u1.AddressOfData) {
-			char name[256];
-			ReadMemory(moduleAddr + original_first_thunk.u1.AddressOfData + 0x2, (void*)&name, 256);
-
-			std::string str_name = name;
-			auto thunk_offset{ thunk_count * sizeof(uintptr_t) };
-
-			//if (str_name.length() > 0)
-			//	imports[str_name] = moduleAddr + descriptor.FirstThunk + thunk_offset;
-
-			++thunk_count;
-			first_thunk = Read<IMAGE_THUNK_DATA>(moduleAddr + descriptor.FirstThunk + sizeof(IMAGE_THUNK_DATA) * thunk_count);
-			original_first_thunk = Read<IMAGE_THUNK_DATA>(moduleAddr + descriptor.OriginalFirstThunk + sizeof(IMAGE_THUNK_DATA) * thunk_count);
-		}
-
-		++descriptor_count;
-		descriptor = Read<IMAGE_IMPORT_DESCRIPTOR>(moduleAddr + ntHeader->OptionalHeader.DataDirectory[1].VirtualAddress + sizeof(IMAGE_IMPORT_DESCRIPTOR) * descriptor_count);
-	}*/
-
-	//Rebuild import table
-
-	//ERROR("Creating new import section");
-
-	//Create New Import Section
-
-	//Build new import Table
 
 	//Dump file
 	const auto dumped_file = CreateFileW(std::wstring(path.begin(), path.end()).c_str(), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
