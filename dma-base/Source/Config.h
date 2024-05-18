@@ -1,8 +1,6 @@
 #pragma once
 #include <Pch.h>
 
-using json = nlohmann::json;
-
 namespace Config
 {
     struct ProcConfig {
