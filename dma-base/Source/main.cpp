@@ -9,16 +9,16 @@ bool main()
     Config::AppConfig config;
     config.LoadFromFile("config.json");
 
-    if (!Mem.Init("explorer.exe", true, true))
-    //if (!Mem.Init(config.Proc.Name))
+    //if (!Mem.Init("explorer.exe", true, true))
+    if (!Mem.Init(config.Proc.Name))
     {
         ERROR("Failed to initialize DMA");
         system("pause");
         return 1;
     }
 
-    Globals::ClientBase = Mem.GetBaseAddress("d3d11.dll");
-    //Globals::ClientBase = Mem.GetBaseAddress(config.Proc.Base);
+    //Globals::ClientBase = Mem.GetBaseAddress("d3d11.dll");
+    Globals::ClientBase = Mem.GetBaseAddress(config.Proc.Base);
     Mem.FixCr3();
 
     if (Kmbox.InitDevice(config.Kmbox.Ip, config.Kmbox.Port, config.Kmbox.Uuid) != 0)
