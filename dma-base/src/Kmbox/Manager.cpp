@@ -120,9 +120,8 @@ int KmBoxNetManager::SetConfig(const std::string& IP, WORD Port)
 	return this->SendData(Length);
 }
 
-void KmBoxNetManager::SpeedTest()
+void KmBoxNetManager::SpeedTest(int count)
 {
-	int count = 10000;
 	int ret;
 
 	auto startTime = std::chrono::steady_clock::now();
@@ -141,7 +140,7 @@ void KmBoxNetManager::SpeedTest()
 
 	auto endTime = std::chrono::steady_clock::now();
 	auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
-	INFO("Speed test (x1k calls) took {} ms", elapsedTime);
+	INFO("Speed test ({0} calls) took {1} ms", count, elapsedTime);
 }
 
 int KmBoxNetManager::NetHandler()

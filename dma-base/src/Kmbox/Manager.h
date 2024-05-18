@@ -64,7 +64,7 @@ public:
     // Set device config
     int SetConfig(const std::string& IP, WORD Port);
 	// Speed test
-	void SpeedTest();
+	void SpeedTest(int count = 1000);
 
     // Fill LCD with color
     int FillLCDColor(unsigned short rgb565);
