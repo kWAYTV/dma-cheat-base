@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Dma\Memory.cpp">
+    <ClCompile Include="Source\Dma\Memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Misc\Pch\Pch.cpp">
+    <ClCompile Include="Source\Misc\Pch\Pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Kmbox\Manager.cpp">
+    <ClCompile Include="Source\Kmbox\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Dma\Memory.h">
+    <ClInclude Include="Source\Dma\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Misc\Pch\Pch.h">
+    <ClInclude Include="Source\Misc\Pch\Pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Globals.h">
+    <ClInclude Include="Source\Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\leechcore.h">
@@ -44,16 +44,16 @@
     <ClInclude Include="Include\vmmdll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Config.h">
+    <ClInclude Include="Source\Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kmbox\Excluded.h">
+    <ClInclude Include="Source\Kmbox\Excluded.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kmbox\Config.h">
+    <ClInclude Include="Source\Kmbox\Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kmbox\Manager.h">
+    <ClInclude Include="Source\Kmbox\Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\spdlog\cfg\argv.h">

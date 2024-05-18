@@ -45,7 +45,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Dma;$(SolutionDir)$(ProjectName)\src\Kmbox;$(SolutionDir)$(ProjectName)\src\Misc;$(SolutionDir)$(ProjectName)\src\Misc\Pch;$(SolutionDir)$(ProjectName)\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\Source\Dma;$(SolutionDir)$(ProjectName)\Source\Kmbox;$(SolutionDir)$(ProjectName)\Source\Misc;$(SolutionDir)$(ProjectName)\Source\Misc\Pch;$(SolutionDir)$(ProjectName)\Source\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -62,15 +62,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Kmbox\Manager.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Dma\Memory.cpp" />
-    <ClCompile Include="src\Misc\Pch\Pch.cpp" />
+    <ClCompile Include="Source\Kmbox\Manager.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Dma\Memory.cpp" />
+    <ClCompile Include="Source\Misc\Pch\Pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Config.h" />
-    <ClInclude Include="src\Globals.h" />
-    <ClInclude Include="src\Dma\Memory.h" />
+    <ClInclude Include="Source\Config.h" />
+    <ClInclude Include="Source\Globals.h" />
+    <ClInclude Include="Source\Dma\Memory.h" />
     <ClInclude Include="Include\json.hpp" />
     <ClInclude Include="Include\leechcore.h" />
     <ClInclude Include="Include\spdlog\async.h" />
@@ -178,10 +178,10 @@
     <ClInclude Include="Include\spdlog\tweakme.h" />
     <ClInclude Include="Include\spdlog\version.h" />
     <ClInclude Include="Include\vmmdll.h" />
-    <ClInclude Include="src\Kmbox\Excluded.h" />
-    <ClInclude Include="src\Kmbox\Config.h" />
-    <ClInclude Include="src\Kmbox\Manager.h" />
-    <ClInclude Include="src\Misc\Pch\Pch.h" />
+    <ClInclude Include="Source\Kmbox\Excluded.h" />
+    <ClInclude Include="Source\Kmbox\Config.h" />
+    <ClInclude Include="Source\Kmbox\Manager.h" />
+    <ClInclude Include="Source\Misc\Pch\Pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
