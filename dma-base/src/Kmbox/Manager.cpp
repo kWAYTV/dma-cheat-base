@@ -120,6 +120,30 @@ int KmBoxNetManager::SetConfig(const std::string& IP, WORD Port)
 	return this->SendData(Length);
 }
 
+void KmBoxNetManager::SpeedTest()
+{
+	int count = 10000;
+	int ret;
+
+	auto startTime = std::chrono::steady_clock::now();
+
+	for (int i = count; i > 0; i -= 2) { // decrement by 2 as we are making two calls in each iteration
+		ret = Kmbox.Mouse.Move(0, -100);
+		if (ret != 0) {
+			ERROR("tx error {} ret1={}", i, ret);
+		}
+
+		ret = Kmbox.Mouse.Move(0, 100);
+		if (ret != 0) {
+			ERROR("tx error {} ret2={}", i, ret);
+		}
+	}
+
+	auto endTime = std::chrono::steady_clock::now();
+	auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
+	INFO("Speed test (x1k calls) took {} ms", elapsedTime);
+}
+
 int KmBoxNetManager::NetHandler()
 {
 	if (ReceiveData.head.cmd != PostData.head.cmd)
@@ -360,8 +384,6 @@ bool KmBoxKeyBoard::GetKeyState(WORD vKey)
 	}
 	return false;
 }
-
-
 
 // Fill LCD with color
 int KmBoxNetManager::FillLCDColor(unsigned short rgb565) {

@@ -63,6 +63,8 @@ public:
     int RebootDevice();
     // Set device config
     int SetConfig(const std::string& IP, WORD Port);
+	// Speed test
+	void SpeedTest();
 
     // Fill LCD with color
     int FillLCDColor(unsigned short rgb565);

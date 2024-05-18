@@ -46,6 +46,7 @@ using json = nlohmann::json;
 #include <spdlog/spdlog.h>
 
 // Logging
+//#define DEBUG_INFO
 #ifdef DEBUG_INFO
 #define INFO(fmt, ...) spdlog::info("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
 #define ERROR(fmt, ...) spdlog::error("[{}:{}] " fmt, __FILE__, __LINE__, ##__VA_ARGS__)
