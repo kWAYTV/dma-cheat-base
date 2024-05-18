@@ -7,9 +7,16 @@ bool main()
     spdlog::set_level(spdlog::level::trace);
 
     Config::AppConfig config;
+
+    if (!config.CheckFileExists("config.json"))
+    {
+        WARN("Config file does not exist, please fill the one created for you");
+        system("pause");
+        return 1;
+    }
+
     config.LoadFromFile("config.json");
 
-    //if (!Mem.Init("explorer.exe", true, true))
     if (!Mem.Init(config.Proc.Name))
     {
         ERROR("Failed to initialize DMA");
@@ -17,7 +24,6 @@ bool main()
         return 1;
     }
 
-    //Globals::ClientBase = Mem.GetBaseAddress("d3d11.dll");
     Globals::ClientBase = Mem.GetBaseAddress(config.Proc.Base);
     Mem.FixCr3();
 
