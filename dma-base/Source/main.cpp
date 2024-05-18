@@ -6,16 +6,12 @@ bool main()
 
     spdlog::set_level(spdlog::level::trace);
 
-    Config::AppConfig config;
-
-    if (!config.CheckFileExists("config.json"))
+	if (!config.Init())
     {
-        WARN("Config file does not exist, please fill the one created for you");
-        system("pause");
-        return 1;
-    }
-
-    config.LoadFromFile("config.json");
+		ERROR("Failed to initialize config. If you didn't have one, fill the new created file.");
+		system("pause");
+		return 1;
+	}
 
     if (!Mem.Init(config.Proc.Name))
     {

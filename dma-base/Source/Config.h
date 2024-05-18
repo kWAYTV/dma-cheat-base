@@ -18,6 +18,19 @@ namespace Config
         ProcConfig Proc;
         KmboxConfig Kmbox;
 
+        bool Init() 
+        {
+            if (!this->CheckFileExists("config.json"))
+            {
+				return false;
+            }
+
+			if (!this->LoadFromFile("config.json"))
+			{
+                return false;
+			}
+        }
+
         bool CheckFileExists(const std::string& filename)
         {
             if (!std::filesystem::exists(filename)) {
@@ -42,7 +55,7 @@ namespace Config
             return true;
         }
 
-        void LoadFromFile(const std::string& filename)
+        bool LoadFromFile(const std::string& filename)
         {
             std::ifstream file(filename);
             if (file.is_open()) {
@@ -61,10 +74,14 @@ namespace Config
                 }
 
                 INFO("Loaded config from file: {}", filename);
+                return true;
             }
             else {
                 ERROR("Could not open config file: {}", filename);
+				return false;
             }
         }
     };
 }
+
+inline Config::AppConfig config;
