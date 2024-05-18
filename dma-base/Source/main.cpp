@@ -3,7 +3,6 @@
 bool main()
 {
     SetConsoleTitleA("Console - Debug");
-
     spdlog::set_level(spdlog::level::trace);
 
 	if (!config.Init())

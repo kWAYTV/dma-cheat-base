@@ -10,7 +10,7 @@ namespace Config
 
     struct KmboxConfig {
         std::string Ip;
-        unsigned short Port;
+		unsigned short Port;
         std::string Uuid;
     };
 
