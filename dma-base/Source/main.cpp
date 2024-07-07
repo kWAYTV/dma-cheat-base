@@ -5,12 +5,12 @@ bool main()
     SetConsoleTitleA("Console - Debug");
     spdlog::set_level(spdlog::level::trace);
 
-	if (!config.Init())
+    if (!config.Init())
     {
-		ERROR("Failed to initialize config. If you didn't have one, fill the new created file.");
-		system("pause");
-		return 1;
-	}
+        ERROR("Failed to initialize config. If you didn't have one, fill the new created file.");
+        system("pause");
+        return 1;
+    }
 
     if (!Mem.Init(config.Proc.Name))
     {
