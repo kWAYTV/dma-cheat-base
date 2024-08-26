@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ShowAllFiles>true</ShowAllFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <RemoteDebuggerCommand>C:\Users\mvnie\OneDrive\Escritorio\dma\cheese\Project-D\project-d.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerConnection>RemoteWithoutAuthentication</RemoteDebuggerConnection>
+    <RemoteDebuggerWorkingDirectory>C:\Users\mvnie\OneDrive\Escritorio\dma\cheese\Project-D\</RemoteDebuggerWorkingDirectory>
+    <RemoteDebuggerServerName>ARIS:4026</RemoteDebuggerServerName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <RemoteDebuggerCommand>C:\Users\mvnie\OneDrive\Escritorio\dma\cheese\Project-D\project-d.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerConnection>RemoteWithoutAuthentication</RemoteDebuggerConnection>
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <RemoteDebuggerWorkingDirectory>C:\Users\mvnie\OneDrive\Escritorio\dma\cheese\Project-D\</RemoteDebuggerWorkingDirectory>
+    <RemoteDebuggerServerName>ARIS:4026</RemoteDebuggerServerName>
+  </PropertyGroup>
+</Project>

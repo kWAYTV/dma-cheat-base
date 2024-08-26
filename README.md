@@ -18,9 +18,9 @@ This is a simple base to start building your Direct Memory Access (DMA) cheats.
 ## Usage
 1. Clone the repository.
 2. Open the project in Visual Studio.
-3. Place `FTD3XX.lib`,  `leechcore.lib` & `vmm.lib` in the project directory, inside `Source/Lib` folder.
-4. Configure `config.h` with your proccess info & kmbox details.
-5. Add your own cheat code & initialize it in `main.cpp`.
+3. Build the DMALibrary, and update it when it updates.
+4. Configure `Config Structs` with your proccess info & kmbox details.
+5. Add your own cheat code & initialize it.
 6. Build the project & send it over to your second machine.
 7. Magic!
 
@@ -29,5 +29,4 @@ I don't include the .lib files in the repo for security reasons. You can downloa
 
 ## Credits
 - [Ulf Frisk](https://github.com/ufrisk) for [MemProcFS](https://github.com/ufrisk/MemProcFS)
-- [SDM](https://github.com/IntelSDM/) for the easy memprocfs implementation
-- [nonamenolife](https://github.com/eden13378) for the kmbox implementation
+- [Metick](https://github.com/Metick) for the [DMALibrary](https://github.com/Metick/DMALibrary)

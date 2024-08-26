@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{bf13d237-4600-4231-bf16-5b54b31d375a}</ProjectGuid>
+    <RootNamespace>projectx</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build/obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)$(ProjectName)\Include</IncludePath>
+    <LibraryPath>$(SolutionDir)$(ProjectName)\Lib;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Out\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Out/obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\Source\Config;$(SolutionDir)$(ProjectName)\Source\Dma;$(SolutionDir)$(ProjectName)\Source\Features;$(SolutionDir)$(ProjectName)\Source\Kmbox;$(SolutionDir)$(ProjectName)\Source\Math;$(SolutionDir)$(ProjectName)\Source\Misc;$(SolutionDir)$(ProjectName)\Source\Overlay;$(SolutionDir)$(ProjectName)\Source\Pch;$(SolutionDir)$(ProjectName)\Source\SDK;$(SolutionDir)$(ProjectName)\Source\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>true</LargeAddressAware>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\External;$(SolutionDir)$(ProjectName)\Source\Config;$(SolutionDir)$(ProjectName)\Source\Dma;$(SolutionDir)DMALibrary\;$(SolutionDir)$(ProjectName)\Source\Features;$(SolutionDir)$(ProjectName)\Source\Kmbox;$(SolutionDir)$(ProjectName)\Source\Math;$(SolutionDir)$(ProjectName)\Source\Misc;$(SolutionDir)$(ProjectName)\Source\Overlay;$(SolutionDir)$(ProjectName)\Source\Pch;$(SolutionDir)$(ProjectName)\Source\SDK;$(SolutionDir)$(ProjectName)\Source\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <AdditionalDependencies>d3d11.lib;$(SolutionDir)lib\DMALibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>true</LargeAddressAware>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="External\imgui\addons\imgui_addons.h" />
+    <ClInclude Include="External\imgui\imconfig.h" />
+    <ClInclude Include="External\imgui\imgui.h" />
+    <ClInclude Include="External\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="External\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="External\imgui\imgui_internal.h" />
+    <ClInclude Include="External\imgui\imstb_rectpack.h" />
+    <ClInclude Include="External\imgui\imstb_textedit.h" />
+    <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="Source\Dma\DMA.hpp" />
+    <ClInclude Include="Source\Math\Matrix.hpp" />
+    <ClInclude Include="Source\Math\Parser.hpp" />
+    <ClInclude Include="Source\Math\Vector.hpp" />
+    <ClInclude Include="Source\Features\Aimbot\Aimbot.hpp" />
+    <ClInclude Include="Source\Config\Config.hpp" />
+    <ClInclude Include="Source\Config\Structs.hpp" />
+    <ClInclude Include="Source\Features\ESP\ESP.hpp" />
+    <ClInclude Include="Source\Features\Features.hpp" />
+    <ClInclude Include="Source\Misc\Animation\Animation.hpp" />
+    <ClInclude Include="Source\Overlay\Fonts\IBMPlexMono_Medium.h" />
+    <ClInclude Include="Source\Overlay\Overlay.hpp" />
+    <ClInclude Include="Source\Overlay\Render\Renderer.hpp" />
+    <ClInclude Include="External\fnv1a\fnv1a.hpp" />
+    <ClInclude Include="External\skCrypter.h" />
+    <ClInclude Include="Source\Features\Radar\Radar.hpp" />
+    <ClInclude Include="Source\Misc\Timer\Timer.hpp" />
+    <ClInclude Include="External\json.hpp" />
+    <ClInclude Include="External\spdlog\async.h" />
+    <ClInclude Include="External\spdlog\async_logger-inl.h" />
+    <ClInclude Include="External\spdlog\async_logger.h" />
+    <ClInclude Include="External\spdlog\cfg\argv.h" />
+    <ClInclude Include="External\spdlog\cfg\env.h" />
+    <ClInclude Include="External\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="External\spdlog\cfg\helpers.h" />
+    <ClInclude Include="External\spdlog\common-inl.h" />
+    <ClInclude Include="External\spdlog\common.h" />
+    <ClInclude Include="External\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="External\spdlog\details\backtracer.h" />
+    <ClInclude Include="External\spdlog\details\circular_q.h" />
+    <ClInclude Include="External\spdlog\details\console_globals.h" />
+    <ClInclude Include="External\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="External\spdlog\details\file_helper.h" />
+    <ClInclude Include="External\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="External\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="External\spdlog\details\log_msg.h" />
+    <ClInclude Include="External\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="External\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="External\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="External\spdlog\details\null_mutex.h" />
+    <ClInclude Include="External\spdlog\details\os-inl.h" />
+    <ClInclude Include="External\spdlog\details\os.h" />
+    <ClInclude Include="External\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="External\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="External\spdlog\details\registry-inl.h" />
+    <ClInclude Include="External\spdlog\details\registry.h" />
+    <ClInclude Include="External\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="External\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="External\spdlog\details\tcp_client.h" />
+    <ClInclude Include="External\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="External\spdlog\details\thread_pool.h" />
+    <ClInclude Include="External\spdlog\details\udp_client-windows.h" />
+    <ClInclude Include="External\spdlog\details\udp_client.h" />
+    <ClInclude Include="External\spdlog\details\windows_include.h" />
+    <ClInclude Include="External\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\args.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\chrono.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\color.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\compile.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\core.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\format-inl.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\locale.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\os.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\std.h" />
+    <ClInclude Include="External\spdlog\fmt\bundled\xchar.h" />
+    <ClInclude Include="External\spdlog\fmt\chrono.h" />
+    <ClInclude Include="External\spdlog\fmt\compile.h" />
+    <ClInclude Include="External\spdlog\fmt\fmt.h" />
+    <ClInclude Include="External\spdlog\fmt\ostr.h" />
+    <ClInclude Include="External\spdlog\fmt\ranges.h" />
+    <ClInclude Include="External\spdlog\fmt\std.h" />
+    <ClInclude Include="External\spdlog\fmt\xchar.h" />
+    <ClInclude Include="External\spdlog\formatter.h" />
+    <ClInclude Include="External\spdlog\fwd.h" />
+    <ClInclude Include="External\spdlog\logger-inl.h" />
+    <ClInclude Include="External\spdlog\logger.h" />
+    <ClInclude Include="External\spdlog\mdc.h" />
+    <ClInclude Include="External\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="External\spdlog\pattern_formatter.h" />
+    <ClInclude Include="External\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\callback_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\hourly_file_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\kafka_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\mongo_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\qt_sinks.h" />
+    <ClInclude Include="External\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\sink.h" />
+    <ClInclude Include="External\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="External\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="External\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\udp_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="External\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="External\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="External\spdlog\spdlog-inl.h" />
+    <ClInclude Include="External\spdlog\spdlog.h" />
+    <ClInclude Include="External\spdlog\stopwatch.h" />
+    <ClInclude Include="External\spdlog\tweakme.h" />
+    <ClInclude Include="External\spdlog\version.h" />
+    <ClInclude Include="Source\Globals.hpp" />
+    <ClInclude Include="Source\Kmbox\Config.hpp" />
+    <ClInclude Include="Source\Kmbox\Excluded.hpp" />
+    <ClInclude Include="Source\Kmbox\Manager.hpp" />
+    <ClInclude Include="Source\Misc\Exception.hpp" />
+    <ClInclude Include="Source\Pch\Pch.hpp" />
+    <ClInclude Include="Source\SDK\SDK.hpp" />
+    <ClInclude Include="Source\Socket\Socket.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="External\imgui\addons\imgui_addons.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_dx11.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_win32.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_tables.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Dma\DMA.cpp" />
+    <ClCompile Include="Source\Features\Aimbot\Aimbot.cpp" />
+    <ClCompile Include="Source\Features\ESP\ESP.cpp" />
+    <ClCompile Include="Source\Misc\Animation\Animation.cpp" />
+    <ClCompile Include="Source\Misc\Timer\Timer.cpp" />
+    <ClCompile Include="Source\Overlay\Overlay.cpp" />
+    <ClCompile Include="Source\Kmbox\Manager.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Pch\Pch.cpp" />
+    <ClCompile Include="Source\SDK\SDK.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
