@@ -11,9 +11,6 @@
 ## Introduction
 This is a simple base to start building your Direct Memory Access (DMA) cheats.
 
-## Todo
-- [ ] Add KMBOX B/B+ Pro support. (Only NET support for now)
-
 ## Usage
 1. Clone the repository.
 2. Open the project in Visual Studio.
